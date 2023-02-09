@@ -1,6 +1,7 @@
-import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const user = require("./routes/test");
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ mongoose
     console.log(err);
   });
 
-app.listen(5000, () => {
+app.use("/api/sample", user);
+
+app.listen(process.env.PORT || 5000, () => {
   console.log("server started");
 });
