@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const user = require("./routes/test");
+const user = require("./routes/menu");
 
 dotenv.config();
 
@@ -15,8 +15,9 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+app.use(express.json());
 
-app.use("/api/sample", user);
+app.use("/api/restaurent", user);
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("server started");
